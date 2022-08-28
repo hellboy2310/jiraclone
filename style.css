@@ -1,0 +1,76 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    background-color:cadetblue;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container{
+    border-radius:2rem;
+    width: 31rem;
+    height: 32rem;
+    background-color: whitesmoke;
+    flex-direction: column;
+    justify-content: center;
+}
+.heading{
+    border-top-left-radius: 2rem;
+    border-top-right-radius:2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    
+    height: 5rem;
+    width: 100%;
+    background-color: teal;
+}
+
+.tasklists{
+    margin-right: 10rem;
+}
+.addBtn{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: white;
+    margin-top:32rem ;
+    border-radius: 4rem;
+    z-index: 2;
+    box-shadow: 0px 0px 1rem 0px grey;
+    color: #219F94;
+    cursor: pointer;  
+    position: absolute;
+
+}
+
+.addBtn i{
+    font-size: xx-large;
+}
+.tasks{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15rem;
+    
+}
+input{
+    width: 100%;
+    height: 8rem;
+    text-align: center;
+    font-size: 1.3rem;
+    border-color: teal;
+    border-left: none;
+    border-right: none;
+    box-shadow:   0px 0.5rem 1rem 0px grey;
+    background-color:linen;  
+    outline: none;  
+    
+}
+
