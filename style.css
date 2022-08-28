@@ -1,41 +1,47 @@
 body{
+    background-color: #219F94;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5rem;
-    background-color:cadetblue;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
 }
-
 .container{
-    border-radius:2rem;
-    width: 31rem;
-    height: 32rem;
-    background-color: whitesmoke;
+    width: 480px;
+    height: 35rem;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow-y: auto; 
-}
-.heading{
-    border-top-left-radius: 2rem;
-    border-top-right-radius:2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    
-    height: 14%;
-    width: 100%;
-    background-color: teal;
 }
 
-.tasklists{
-    
-    margin-right: 10rem;
+.heading{
+    margin-top: 5rem;
+    display: flex;
+    width: 100%;
+    height: 14%;
+    justify-content: space-around;
+    background-color: teal;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    color:lightgrey
 }
+.heading h3{
+    cursor: pointer;
+    /* color: lightgray; */
+}
+
+.active{
+    color:white;
+}
+
+.tasks{
+    height: 90%;
+    width: 100%;
+    background-color: white;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    overflow-y: auto;
+}
+
 .addBtn{
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,53 +53,44 @@ body{
     z-index: 2;
     box-shadow: 0px 0px 1rem 0px grey;
     color: #219F94;
-    cursor: pointer;  
-    
-
+    cursor: pointer;
 }
 
 .addBtn i{
     font-size: xx-large;
 }
-.tasks{
-    position: absolute;
-    top: 14rem;
+
+.oneTask{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
     
-}
-input{
-    
-    width: 490px;
-    
-    height: 8rem;
-    text-align: center;
-    font-size: 1.3rem;
-    border-color: teal;
-    border-left: none;
-    border-right: none;
-    box-shadow:   0px 0.5rem 1rem 0px grey;
-    background-color:linen;  
-    outline: none;  
-    
-}
-.ticket-cont{
- margin: 1rem;   
- display: flex;
- border: 1px solid teal;
-        
-}
-.task-area{
- width: 90%;  
- height: 2rem;
- display: flex;
- align-items: center;
- justify-content: space-evenly;
- overflow-x: hidden;
-  
-}
-.done{
-    color: teal;
-}
-.delete{
-    color: teal;
 }
 
+.oneTask p{
+    width: 65%;
+    border: 1px solid lightgrey;
+    padding: 0.2rem;
+}
+
+i{
+    color:#219F94;
+    cursor: pointer;
+}
+
+.taskToDo{
+    position:absolute;
+    top:14rem;
+    box-shadow: 0px 0px .5rem 0px #219F94;
+    /* background-color: lightgrey; */
+}
+
+.taskToDo input{
+    width: 474px;
+    height: 8rem;
+    background-color: lightgray;
+    outline: none;
+    border:none;
+    font-size: large;
+    text-align: center;
+}
