@@ -2,8 +2,8 @@ let addBtn = document.querySelector(".addBtn");
 let isBtnPressed = false;
 let body = document.querySelector('body');
 let taskListsBtn = document.querySelector(".taskLists");
-let todoArr = localStorage.getItem("todoArr");
-let completedArr = localStorage.getItem("completedArr");
+let todoArr = [];
+let completedArr = [];
 let completedBtn  = document.querySelector(".completed");
 
 
