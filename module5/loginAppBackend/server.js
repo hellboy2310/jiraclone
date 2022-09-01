@@ -31,6 +31,35 @@ app.post("/signup", async function(req,res){
 })
 
 
+app.post("/login",async function(req,res){
+    try{
+        let data = req.body;
+        let{email,password} = data;
+        if(email && password)
+        {
+            let user = await userModel.findOne({email:email});
+            if(user){
+                if(user.password == password){
+                    res.send("User logged in ");
+                }
+                else{
+                    res.send("email or password does not exist");
+                }
+            }
+            else{
+                res.send("user with this email does not exist .kindly sign up");
+            }
+        }
+        else{
+            res.send("Kindly enter email and password both");
+        }
+        
+    }
+    catch(err){
+        console.log(err.message);
+    }
+})
+
 
 
 app.listen(3000,function(req,res){

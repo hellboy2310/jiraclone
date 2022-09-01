@@ -57,5 +57,3 @@ let userSchema = new Schema({
 
 const userModel = mongoose.model('LoginUserModel',userSchema);
 module.exports = userModel;
- 
-
