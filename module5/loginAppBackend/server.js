@@ -10,6 +10,7 @@ app.use(express.json());
 //email
 //phone
 //pic
+// module.exports = "Cgd8lbLa5BkNVDVb";this is the password which is present in the secrets
 
 app.post("/signup", async function(req,res){
     try{
@@ -19,12 +20,12 @@ app.post("/signup", async function(req,res){
     
         res.json({
             message:"data received",
-            data:data
+            
         })
     
     }
    catch(err){
-    console.log(err.message);
+    
     res.send(err.message);
    }
 })

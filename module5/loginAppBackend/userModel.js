@@ -10,33 +10,37 @@ mongoose.connect(dbLink).then(function(){
 }).catch(function(err){
     console.log("erorr",err);
 })
-
-
-
 //how to create a schema -> only entries will be added to you schema
 
 let userSchema = new Schema({
     name:{
         type:String,
-        required:true
+        required:[true,"Name is not given please provide a name"]
     },
     password:{
         type:String,
-        required:true
+        required:[true,"Password is missing"]
     },
     confirmPassword:{
         type:String,
-        required:true
+        required:[true,"Confirm password is missing"],
+
+        validate:{
+            validator: function(){
+                return this.password == this.confirmPassword;
+            },
+            message:"Password mismatch"
+        }
     },
     email:{
         type:String,
         required:true,
-        unique:true
+        unique:[true,"email is missing"]
     },
     phone:{
         type:String,
-        minLength:10,
-        maxLength:10
+        minLength:[10,"Less than 10 numbers"],
+        maxLength:[10,"more than 10 numbers"]
     },
     pic:{
         type:String,
