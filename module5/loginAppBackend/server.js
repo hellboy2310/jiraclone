@@ -1,6 +1,13 @@
 const express = require("express");
 const app = express();
 
+//npm i cookie-parser
+
+const cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
+
+
 const userModel = require("./userModel");
 app.use(express.json());
 //signup input
@@ -40,6 +47,7 @@ app.post("/login",async function(req,res){
             let user = await userModel.findOne({email:email});
             if(user){
                 if(user.password == password){
+                    res.cookie("token","sample value");
                     res.send("User logged in ");
                 }
                 else{
@@ -60,7 +68,9 @@ app.post("/login",async function(req,res){
     }
 })
 
-
+app.get("/users",function(req,res){
+    console.log(req.cookies);
+})
 
 app.listen(3000,function(req,res){
     console.log("server started at 3000")
