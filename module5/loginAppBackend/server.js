@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const mailSender = require("./mailSender")
 
 //npm i cookie-parser
 
@@ -79,18 +80,29 @@ app.post("/login",async function(req,res){
 app.patch("/forgetPassword", async function(req,res){
 try{
     let {email} = req.body;
-    let afterFiveMin = Date.now() + 1000*60*5;
-    let otp = otpGenerator();
     //mail ke basis par search ho raha he
     //by default->find and update ->not udpated send document
     //new = true _. we will get updated doc
-    let user = await userModel.findOneAndUpdate({email:email},{otp:otp,otpExpiry:afterFiveMin},{new:true});
-    console.log(user);
-    res.json({
-        data:user,
-        message:"opt sent to you mail"
-    })
+    //{otp:otp,otpExpiry:afterFiveMin},{new:true}
+    let user = await userModel.findOne({email:email});
+    if(user){
+        let otp = otpGenerator();
+        let afterFiveMin = Date.now() + 1000*60*5;
     
+   await mailSender(email,otp);
+   user.otp = otp;
+   user.otpExpiry = afterFiveMin;
+   await user.save();
+   res.json({
+    data:user,
+    "message":"otp sent to your email"
+   })
+    }
+    else{
+        res.json({
+            result:"user with this email does not exist"
+        })
+    }
 }
 catch(err){
     res.send(err.message);
@@ -189,3 +201,4 @@ function protectRoute(req,res,next){
 app.listen(3000,function(req,res){
     console.log("server started at 3000")
 })
+
